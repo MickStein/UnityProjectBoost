@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // PARAMS - Visible and adjustable in Unity UI
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 1000f;
+    [SerializeField] AudioClip mainEngine;
+
+    // CACHE - Variables to assist readability
     Rigidbody rb;
+    AudioSource rocketThrusterSound;
+
+    // STATE - Private instance (member) variables
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rocketThrusterSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,9 +31,17 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            if (!rocketThrusterSound.isPlaying)
+            {
+                rocketThrusterSound.PlayOneShot(mainEngine);
+            }
+        }
+        else
+        {
+            rocketThrusterSound.Stop();
         }
     }
 
