@@ -1,0 +1,21 @@
+#readme
+
+Introduction:
+
+This is a project done on C# using the Unity game engine software. It is part of the Complete C# Unity Game Development course on Udemy.com, 
+created by Ben Tristem, Rick Davidson and GameDev.tv team. I have extended what has been taught in the section of the module to create a game where you 
+control a rocket and guide it to the end platform.
+
+Controls:
+
+A: tilt left
+D: tilt right
+Space: thrusters
+
+Known bugs:
+
+When crashing the camera can occasionally get stuck
+
+Credit and copyright:
+Udemy.com
+Ben Tristem, Rick Davidson and GameDev.tv team - Complete C# Unity Game Development course
